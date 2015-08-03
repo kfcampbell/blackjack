@@ -11,12 +11,14 @@ namespace BlackJack
 		string suit;
 		string rank;
 		int numericalRank;
+		int level;
 
 		// constructor
-		public Card (string suit, string rank)
+		public Card (string suit, string rank, int level)
 		{
 			this.suit = suit;
 			this.rank = rank;
+			this.level = level;
 
 			switch(rank)
 			{
@@ -79,6 +81,11 @@ namespace BlackJack
 		public int getNumericalRank()
 		{
 			return this.numericalRank;
+		}
+
+		public int getLevel()
+		{
+			return this.level;
 		}
 	}
 }
