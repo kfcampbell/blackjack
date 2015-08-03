@@ -16,7 +16,11 @@ namespace BlackJack
 	{
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
-		UIImageView fireworks { get; set; }
+		UIButton doneButton { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIButton hitButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -36,6 +40,14 @@ namespace BlackJack
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel myCard3Label { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel myCard4Label { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton playButton { get; set; }
 
 		[Outlet]
@@ -44,9 +56,13 @@ namespace BlackJack
 
 		void ReleaseDesignerOutlets ()
 		{
-			if (fireworks != null) {
-				fireworks.Dispose ();
-				fireworks = null;
+			if (doneButton != null) {
+				doneButton.Dispose ();
+				doneButton = null;
+			}
+			if (hitButton != null) {
+				hitButton.Dispose ();
+				hitButton = null;
 			}
 			if (houseCard1Label != null) {
 				houseCard1Label.Dispose ();
@@ -63,6 +79,14 @@ namespace BlackJack
 			if (myCard2Label != null) {
 				myCard2Label.Dispose ();
 				myCard2Label = null;
+			}
+			if (myCard3Label != null) {
+				myCard3Label.Dispose ();
+				myCard3Label = null;
+			}
+			if (myCard4Label != null) {
+				myCard4Label.Dispose ();
+				myCard4Label = null;
 			}
 			if (playButton != null) {
 				playButton.Dispose ();
