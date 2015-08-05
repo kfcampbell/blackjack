@@ -32,6 +32,18 @@ namespace BlackJack
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel houseCard3Label { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel houseCard4Label { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel houseCardsLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel myCard1Label { get; set; }
 
 		[Outlet]
@@ -45,6 +57,10 @@ namespace BlackJack
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel myCard4Label { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UILabel myCardsLabel { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
@@ -72,6 +88,18 @@ namespace BlackJack
 				houseCard2Label.Dispose ();
 				houseCard2Label = null;
 			}
+			if (houseCard3Label != null) {
+				houseCard3Label.Dispose ();
+				houseCard3Label = null;
+			}
+			if (houseCard4Label != null) {
+				houseCard4Label.Dispose ();
+				houseCard4Label = null;
+			}
+			if (houseCardsLabel != null) {
+				houseCardsLabel.Dispose ();
+				houseCardsLabel = null;
+			}
 			if (myCard1Label != null) {
 				myCard1Label.Dispose ();
 				myCard1Label = null;
@@ -87,6 +115,10 @@ namespace BlackJack
 			if (myCard4Label != null) {
 				myCard4Label.Dispose ();
 				myCard4Label = null;
+			}
+			if (myCardsLabel != null) {
+				myCardsLabel.Dispose ();
+				myCardsLabel = null;
 			}
 			if (playButton != null) {
 				playButton.Dispose ();
