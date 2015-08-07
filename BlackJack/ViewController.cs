@@ -3,8 +3,7 @@ using System.Threading.Tasks;
 using UIKit;
 
 // TODO(kfcampbell):
-// 1. implement some kind of "clear the board function"
-// 2. call it after every game (in the checkWinner function)
+// 
 
 namespace BlackJack
 {
@@ -77,7 +76,6 @@ namespace BlackJack
 			doneButton.TouchUpInside += (object sender, EventArgs e) => 
 			{
 				hitDealer();
-				//checkWinner();
 			};
 
 		}
@@ -98,19 +96,19 @@ namespace BlackJack
 					await Task.Delay (1000);
 					if(checkHouseBust())
 					{
-						var alert = UIAlertController.Create("Whoa Whoa Whoa.", "The house busted! \n On a "
+						/*var alert = UIAlertController.Create("Whoa Whoa Whoa.", "The house busted! \n On a "
 							+ housecard3.getRank() + " of " + housecard3.getSuit(), UIAlertControllerStyle.Alert);
 
 						// add buttons
 						alert.AddAction(UIAlertAction.Create("Okay :)", UIAlertActionStyle.Default, null));
 
 						// actually show the thing
-						PresentViewController(alert, true, null);
-
-						//checkWinner ();
+						PresentViewController(alert, true, null);*/
 					}
 				}
-				else if(housecard4 == null)
+				updateCount ();
+				Console.Out.WriteLine ("housesum: " + housesum + ". mysum: " + mysum);
+				if(housecard4 == null && housesum < 17)
 				{
 					houseCard4Label.Hidden = false;
 					houseCard4Label.Text = "Dealing...";
@@ -121,21 +119,15 @@ namespace BlackJack
 					await Task.Delay (1000);
 					if(checkHouseBust())
 					{
-						var alert = UIAlertController.Create("Whoa Whoa Whoa.", "The house busted! \n On a "
+						/*var alert = UIAlertController.Create("Whoa Whoa Whoa.", "The house busted! \n On a "
 							+ housecard4.getRank() + " of " + housecard4.getSuit(), UIAlertControllerStyle.Alert);
 
 						// add buttons
 						alert.AddAction(UIAlertAction.Create("Okay :)", UIAlertActionStyle.Default, null));
 
 						// actually show the thing
-						PresentViewController(alert, true, null);
-
-						//checkWinner ();
+						PresentViewController(alert, true, null);*/
 					}
-				}
-				else
-				{
-					Console.Out.WriteLine ("hitDealer() error. no cards null");
 				}
 			}
 			updateCount ();
@@ -175,8 +167,6 @@ namespace BlackJack
 
 						// actually show the thing
 						PresentViewController(alert, true, null);
-
-						checkWinner ();
 					}
 				}
 				else if(mycard4 == null)
@@ -199,11 +189,8 @@ namespace BlackJack
 
 						// actually show the thing
 						PresentViewController(alert, true, null);
-
-						checkWinner ();
 					}
 				}
-
 			}
 		}
 
@@ -293,27 +280,60 @@ namespace BlackJack
 
 			try
 			{
-				// house cards 3 and 4 to go here in the future
+				housesum += housecard3.getNumericalRank();
+				housesum += housecard4.getNumericalRank();
 			}
 			catch(Exception ex)
 			{
 				Console.Out.WriteLine (ex.ToString ());
-				// not implemented yet
 			}
 
 			myCardsLabel.Text = "Your Cards (sum " + mysum + ")";
 			houseCardsLabel.Text = "Dealer's Cards (sum " + housesum + ")";
 		}
 
-		public void checkWinner()
+		public string printCards()
 		{
+			var cardstring = "";
+			cardstring += "Your cards: \n";
+			try
+			{
+				cardstring += mycard1.getRank() + " of " + mycard1.getSuit() + "\n";
+				cardstring += mycard2.getRank() + " of " + mycard2.getSuit() + "\n";
+				cardstring += mycard3.getRank() + " of " + mycard3.getSuit() + "\n";
+				cardstring += mycard4.getRank() + " of " + mycard4.getSuit() + "\n";
+			}
+			catch(Exception ex)
+			{
+				Console.Out.WriteLine ("my cardstring error: " + ex.ToString ());
+			}
+			cardstring += "House cards: \n";
+			try
+			{
+				cardstring += housecard1.getRank() + " of " + housecard1.getSuit() + "\n";
+				cardstring += housecard2.getRank() + " of " + housecard2.getSuit() + "\n";
+				cardstring += housecard3.getRank() + " of " + housecard3.getSuit() + "\n";
+				cardstring += housecard4.getRank() + " of " + housecard4.getSuit() + "\n";
+			}
+			catch(Exception ex)
+			{
+				Console.Out.WriteLine ("house cardstring error: " + ex.ToString ());
+			}
+			return cardstring;
+		}
+
+		public async void checkWinner()
+		{
+			updateCount ();
+			await Task.Delay (2000);
 			updateCount ();
 			if (housesum > mysum && !checkHouseBust()) 
 			{
 				Console.Out.WriteLine ("House wins!");
 				resultLabel.Text = "House wins!";
 
-				var alert = UIAlertController.Create("House Wins!", "You can't beat the man.", UIAlertControllerStyle.Alert);
+				var alert = UIAlertController.Create("House Wins!", "You can't beat the man." +
+					"\n " + printCards(), UIAlertControllerStyle.Alert);
 
 				// add buttons
 				alert.AddAction(UIAlertAction.Create("Okay :(", UIAlertActionStyle.Default, null));
@@ -326,7 +346,7 @@ namespace BlackJack
 				Console.Out.WriteLine ("You win!");
 				resultLabel.Text = "You win!";
 
-				var alert = UIAlertController.Create("You Win!", "Aww yeah bitch.", UIAlertControllerStyle.Alert);
+				var alert = UIAlertController.Create("You Win!", "Aww yeah bitch." + "\n" + printCards(), UIAlertControllerStyle.Alert);
 
 				// add buttons
 				alert.AddAction(UIAlertAction.Create("Alright!", UIAlertActionStyle.Default, null));
@@ -339,10 +359,36 @@ namespace BlackJack
 				Console.Out.WriteLine ("Push!");
 				resultLabel.Text = "It was a push!";
 
-				var alert = UIAlertController.Create("It was a push!", "Bummer, dude.", UIAlertControllerStyle.Alert);
+				var alert = UIAlertController.Create("It was a push!", "Bummer, dude." + "\n" + printCards(), UIAlertControllerStyle.Alert);
 
 				// add buttons
 				alert.AddAction(UIAlertAction.Create("Okay", UIAlertActionStyle.Default, null));
+
+				// actually show the thing
+				PresentViewController(alert, true, null);
+			}
+			else if(housesum > mysum && checkHouseBust())
+			{
+				Console.Out.WriteLine ("You win!");
+				resultLabel.Text = "You win!";
+
+				var alert = UIAlertController.Create("You Win!", "Aww yeah bitch." + "\n" + printCards(), UIAlertControllerStyle.Alert);
+
+				// add buttons
+				alert.AddAction(UIAlertAction.Create("Alright!", UIAlertActionStyle.Default, null));
+
+				// actually show the thing
+				PresentViewController(alert, true, null);
+			}
+			else if(housesum < mysum && checkBust())
+			{
+				Console.Out.WriteLine ("You win!");
+				resultLabel.Text = "You win!";
+
+				var alert = UIAlertController.Create("You Win!", "Aww yeah bitch." + "\n" + printCards(), UIAlertControllerStyle.Alert);
+
+				// add buttons
+				alert.AddAction(UIAlertAction.Create("Alright!", UIAlertActionStyle.Default, null));
 
 				// actually show the thing
 				PresentViewController(alert, true, null);
@@ -409,8 +455,6 @@ namespace BlackJack
 			Console.Out.WriteLine ("housecard2: " + housecard2.getRank () + " " + housecard2.getSuit ());
 			int housecardsum = housecard1.getNumericalRank () + housecard2.getNumericalRank ();
 			Console.Out.WriteLine ("house cards summed: " + housecardsum);
-
-			//checkWinner ();
 
 			updateCount ();
 
