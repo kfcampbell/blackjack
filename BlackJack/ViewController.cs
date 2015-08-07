@@ -295,7 +295,7 @@ namespace BlackJack
 		public string printCards()
 		{
 			var cardstring = "";
-			cardstring += "Your cards: \n";
+			cardstring += "\nYour cards: \n\n";
 			try
 			{
 				cardstring += mycard1.getRank() + " of " + mycard1.getSuit() + "\n";
@@ -307,7 +307,7 @@ namespace BlackJack
 			{
 				Console.Out.WriteLine ("my cardstring error: " + ex.ToString ());
 			}
-			cardstring += "House cards: \n";
+			cardstring += "\nHouse cards: \n\n";
 			try
 			{
 				cardstring += housecard1.getRank() + " of " + housecard1.getSuit() + "\n";
