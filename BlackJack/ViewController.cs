@@ -391,7 +391,7 @@ namespace BlackJack
 				Console.Out.WriteLine ("You win!");
 				resultLabel.Text = "You win!";
 
-				var alert = UIAlertController.Create("You Win!", "Aww yeah bitch." + "\n" + printCards(), UIAlertControllerStyle.Alert);
+				var alert = UIAlertController.Create("You Win!", "Aww yeah!" + "\n" + printCards(), UIAlertControllerStyle.Alert);
 
 				// add buttons
 				alert.AddAction(UIAlertAction.Create("Alright!", UIAlertActionStyle.Default, null));
@@ -525,10 +525,6 @@ namespace BlackJack
 			houseImage2.Image = UIImage.FromBundle (housecard2.getCardString ());
 			aceTest (housecard1, 4);
 			aceTest (housecard2, 5);
-
-			int mycardsum = mycard1.getNumericalRank () + mycard2.getNumericalRank ();
-
-			int housecardsum = housecard1.getNumericalRank () + housecard2.getNumericalRank ();
 
 			updateCount ();
 			hitButton.Hidden = false;
