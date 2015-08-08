@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card One" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card One" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5" fixedFrame="YES">
                                 <rect key="frame" x="37" y="82" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -26,7 +26,7 @@
                                     <rect key="frame" x="20" y="82" width="124" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Two" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Two" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6" fixedFrame="YES">
                                 <rect key="frame" x="37" y="142" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -36,7 +36,7 @@
                                     <rect key="frame" x="20" y="141" width="124" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card One" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card One" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="7" fixedFrame="YES">
                                 <rect key="frame" x="37" y="208" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -46,7 +46,7 @@
                                     <rect key="frame" x="16" y="296" width="124" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="8" fixedFrame="YES">
                                 <rect key="frame" x="37" y="262" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -56,7 +56,7 @@
                                     <rect key="frame" x="30" y="762" width="42" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Cards" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Your Cards" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9" fixedFrame="YES">
                                 <rect key="frame" x="132" y="40" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -66,7 +66,7 @@
                                     <rect key="frame" x="20" y="24" width="280" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dealer's Cards" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="10">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dealer's Cards" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="10" fixedFrame="YES">
                                 <rect key="frame" x="124" y="179" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -76,7 +76,7 @@
                                     <rect key="frame" x="20" y="251" width="280" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Two" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="11">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Two" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="11" fixedFrame="YES">
                                 <rect key="frame" x="124" y="430" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -86,7 +86,7 @@
                                     <rect key="frame" x="16" y="344" width="124" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="12">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Result" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="12" fixedFrame="YES">
                                 <rect key="frame" x="123" y="418" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -96,7 +96,7 @@
                                     <rect key="frame" x="20" y="405" width="280" height="58"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="21" fixedFrame="YES">
                                 <rect key="frame" x="137" y="454" width="46" height="30"/>
                                 <state key="normal" title="Play the man again.">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,7 +106,7 @@
                                     <rect key="frame" x="20" y="491" width="280" height="30"/>
                                 </variation>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Three" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="46">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Three" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="46" fixedFrame="YES">
                                 <rect key="frame" x="168" y="82" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -116,7 +116,7 @@
                                     <rect key="frame" x="168" y="82" width="132" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Four" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="47">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Four" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="47" fixedFrame="YES">
                                 <rect key="frame" x="168" y="141" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -126,7 +126,7 @@
                                     <rect key="frame" x="168" y="141" width="132" height="21"/>
                                 </variation>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48" fixedFrame="YES">
                                 <rect key="frame" x="126" y="371" width="46" height="30"/>
                                 <state key="normal" title="Hit Me!">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,9 +136,9 @@
                                     <rect key="frame" x="168" y="179" width="132" height="43"/>
                                 </variation>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95" fixedFrame="YES">
                                 <rect key="frame" x="33" y="186" width="46" height="30"/>
-                                <state key="normal" title="All Good.">
+                                <state key="normal" title="Hold.">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -146,7 +146,7 @@
                                     <rect key="frame" x="20" y="186" width="116" height="30"/>
                                 </variation>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Three" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="103">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Three" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="103" fixedFrame="YES">
                                 <rect key="frame" x="168" y="286" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -156,7 +156,7 @@
                                     <rect key="frame" x="168" y="296" width="132" height="21"/>
                                 </variation>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Four" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="104">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Card Four" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="104" fixedFrame="YES">
                                 <rect key="frame" x="168" y="344" width="42" height="21"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -166,49 +166,49 @@
                                     <rect key="frame" x="168" y="344" width="132" height="21"/>
                                 </variation>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="150">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="150" fixedFrame="YES">
                                 <rect key="frame" x="80" y="58" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="9" y="53" width="69" height="101"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="160">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="160" fixedFrame="YES">
                                 <rect key="frame" x="131" y="20" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="157" y="53" width="65" height="101"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="161">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="161" fixedFrame="YES">
                                 <rect key="frame" x="205" y="2" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="233" y="53" width="66" height="101"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="177">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="177" fixedFrame="YES">
                                 <rect key="frame" x="63" y="0.0" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="86" y="53" width="65" height="101"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="185">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="185" fixedFrame="YES">
                                 <rect key="frame" x="-9" y="220" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="9" y="280" width="65" height="105"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="186">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="186" fixedFrame="YES">
                                 <rect key="frame" x="54" y="204" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="82" y="280" width="67" height="105"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="187">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="187" fixedFrame="YES">
                                 <rect key="frame" x="116" y="425" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="156" y="280" width="67" height="105"/>
                                 </variation>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="188">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="188" fixedFrame="YES">
                                 <rect key="frame" x="192" y="186" width="160" height="240"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="231" y="280" width="69" height="105"/>
@@ -302,4 +302,77 @@
             <point key="canvasLocation" x="0.0" y="0.0"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="2_of_clubs.png" width="500" height="726"/>
+        <image name="2_of_diamonds.png" width="500" height="726"/>
+        <image name="2_of_hearts.png" width="500" height="726"/>
+        <image name="2_of_spades.png" width="500" height="726"/>
+        <image name="3_of_clubs.png" width="500" height="726"/>
+        <image name="3_of_diamonds.png" width="500" height="726"/>
+        <image name="3_of_hearts.png" width="500" height="726"/>
+        <image name="3_of_spades.png" width="500" height="726"/>
+        <image name="4_of_clubs.png" width="500" height="726"/>
+        <image name="4_of_diamonds.png" width="500" height="726"/>
+        <image name="4_of_hearts.png" width="500" height="726"/>
+        <image name="4_of_spades.png" width="500" height="726"/>
+        <image name="5_of_clubs.png" width="500" height="726"/>
+        <image name="5_of_diamonds.png" width="500" height="726"/>
+        <image name="5_of_hearts.png" width="500" height="726"/>
+        <image name="5_of_spades.png" width="500" height="726"/>
+        <image name="6_of_clubs.png" width="500" height="726"/>
+        <image name="6_of_diamonds.png" width="500" height="726"/>
+        <image name="6_of_hearts.png" width="500" height="726"/>
+        <image name="6_of_spades.png" width="500" height="726"/>
+        <image name="7_of_clubs.png" width="500" height="726"/>
+        <image name="7_of_diamonds.png" width="500" height="726"/>
+        <image name="7_of_hearts.png" width="500" height="726"/>
+        <image name="7_of_spades.png" width="500" height="726"/>
+        <image name="8_of_clubs.png" width="500" height="726"/>
+        <image name="8_of_diamonds.png" width="500" height="726"/>
+        <image name="8_of_hearts.png" width="500" height="726"/>
+        <image name="8_of_spades.png" width="500" height="726"/>
+        <image name="9_of_clubs.png" width="500" height="726"/>
+        <image name="9_of_diamonds.png" width="500" height="726"/>
+        <image name="9_of_hearts.png" width="500" height="726"/>
+        <image name="9_of_spades.png" width="500" height="726"/>
+        <image name="10_of_clubs.png" width="500" height="726"/>
+        <image name="10_of_diamonds.png" width="500" height="726"/>
+        <image name="10_of_hearts.png" width="500" height="726"/>
+        <image name="10_of_spades.png" width="500" height="726"/>
+        <image name="ace_of_clubs.png" width="500" height="726"/>
+        <image name="ace_of_diamonds.png" width="500" height="726"/>
+        <image name="ace_of_hearts.png" width="500" height="726"/>
+        <image name="ace_of_spades.png" width="500" height="726"/>
+        <image name="ace_of_spades2.png" width="500" height="726"/>
+        <image name="black_joker.png" width="500" height="726"/>
+        <image name="jack_of_clubs.png" width="500" height="726"/>
+        <image name="jack_of_clubs2.png" width="500" height="726"/>
+        <image name="jack_of_diamonds.png" width="500" height="726"/>
+        <image name="jack_of_diamonds2.png" width="500" height="726"/>
+        <image name="jack_of_hearts.png" width="500" height="726"/>
+        <image name="jack_of_hearts2.png" width="500" height="726"/>
+        <image name="jack_of_spades.png" width="500" height="726"/>
+        <image name="jack_of_spades2.png" width="500" height="726"/>
+        <image name="king_of_clubs.png" width="500" height="726"/>
+        <image name="king_of_clubs2.png" width="500" height="726"/>
+        <image name="king_of_diamonds.png" width="500" height="726"/>
+        <image name="king_of_diamonds2.png" width="500" height="726"/>
+        <image name="king_of_hearts.png" width="500" height="726"/>
+        <image name="king_of_hearts2.png" width="500" height="726"/>
+        <image name="king_of_spades.png" width="500" height="726"/>
+        <image name="king_of_spades2.png" width="500" height="726"/>
+        <image name="queen_of_clubs.png" width="500" height="726"/>
+        <image name="queen_of_clubs2.png" width="500" height="726"/>
+        <image name="queen_of_diamonds.png" width="500" height="726"/>
+        <image name="queen_of_diamonds2.png" width="500" height="726"/>
+        <image name="queen_of_hearts.png" width="500" height="726"/>
+        <image name="queen_of_hearts2.png" width="500" height="726"/>
+        <image name="queen_of_spades.png" width="500" height="726"/>
+        <image name="queen_of_spades2.png" width="500" height="726"/>
+        <image name="red_joker.png" width="500" height="726"/>
+        <image name="back.png" width="836" height="1118"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
 </document>

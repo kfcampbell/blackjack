@@ -444,7 +444,7 @@ namespace BlackJack
 				Console.Out.WriteLine ("You win!");
 				resultLabel.Text = "You win!";
 
-				var alert = UIAlertController.Create("You Win!", "Aww yeah bitch." + "\n" + printCards(), UIAlertControllerStyle.Alert);
+				var alert = UIAlertController.Create("You Win!", "Aww yeah!" + "\n" + printCards(), UIAlertControllerStyle.Alert);
 
 				// add buttons
 				alert.AddAction(UIAlertAction.Create("Alright!", UIAlertActionStyle.Default, null));
