@@ -75,9 +75,45 @@ namespace BlackJack
 
 			doneButton.TouchUpInside += (object sender, EventArgs e) => 
 			{
+				hitButton.Hidden = true;
+				doneButton.Hidden = true;
 				hitDealer();
 			};
+		}
 
+		// parameters: card, and an int: 0 = mycard1, 1 = mycard2, 2 = mycard3, 3 = mycard4.
+		// 4 = housecard1, 5 = housecard2, 6 = housecard3, 7 = housecard4
+		public Card aceTest(Card card, int which)
+		{
+			Console.Out.WriteLine ("Ace test: which: " + which + ". " + card.getRank () + " of " + card.getSuit ());
+			// first some error handling
+			if(which < 0 || which > 7)
+			{
+				Console.Out.WriteLine("AceTest: Not a real card, jackass.");
+				return card;
+			}
+
+			// now set it to an 11 and update the count
+			card.setNumericalRank (11);
+			updateCount ();
+
+			// see if an 11 will bust
+			if(which == 0 || which == 1 || which == 2 || which == 3)
+			{
+				if(checkBust())
+				{
+					card.setNumericalRank (1);
+				}
+			}
+			else if(which == 4 || which == 5 || which == 6 || which == 7)
+			{
+				if(checkHouseBust())
+				{
+					card.setNumericalRank (1);
+				}
+			}
+			Console.Out.WriteLine("ace test final result: which: " + which + ". " + card.getRank () + " of " + card.getSuit ());
+			return card;
 		}
 
 		public async void hitDealer()
@@ -91,6 +127,9 @@ namespace BlackJack
 					houseCard3Label.Text = "Dealing...";
 					await Task.Delay (2500);
 					housecard3 = dealDeck.dealCard ();
+					aceTest (housecard1, 4);
+					aceTest (housecard2, 5);
+					aceTest (housecard3, 6);
 					Console.Out.WriteLine ("housecard3: " + housecard3.getRank () + " of " + housecard3.getSuit ());
 					houseCard3Label.Text = housecard3.getRank () + " of " + housecard3.getSuit ();
 					await Task.Delay (1000);
@@ -114,6 +153,10 @@ namespace BlackJack
 					houseCard4Label.Text = "Dealing...";
 					await Task.Delay (2500);
 					housecard4 = dealDeck.dealCard ();
+					aceTest (housecard1, 4);
+					aceTest (housecard2, 5);
+					aceTest (housecard3, 6);
+					aceTest (housecard4, 7);
 					Console.Out.WriteLine ("housecard4: " + housecard4.getRank () + " of " + housecard4.getSuit ());
 					houseCard4Label.Text = housecard4.getRank () + " of " + housecard4.getSuit ();
 					await Task.Delay (1000);
@@ -136,7 +179,7 @@ namespace BlackJack
 
 		public async void hitMe()
 		{
-			if(cardsInHand == 4)
+			if(mycard3 != null && mycard4 != null)
 			{
 				var alert = UIAlertController.Create("Whoa Whoa Whoa.", "You can't hit now, jackass.", UIAlertControllerStyle.Alert);
 
@@ -154,19 +197,28 @@ namespace BlackJack
 					myCard3Label.Text = "Dealing...";
 					await Task.Delay (2500);
 					mycard3 = dealDeck.dealCard ();
+					aceTest (mycard1, 0);
+					aceTest (mycard2, 1);
+					aceTest (mycard3, 2);
 					Console.Out.WriteLine ("mycard3: " + mycard3.getRank () + " of " + mycard3.getSuit ());
 					myCard3Label.Text = mycard3.getRank () + " of " + mycard3.getSuit ();
 					
 					if(checkBust())
 					{
 						var alert = UIAlertController.Create("Whoa Whoa Whoa.", "You busted! \n" +
-							"On a " + mycard3.getRank() + " of " + mycard3.getSuit(), UIAlertControllerStyle.Alert);
+							"On a " + mycard3.getRank() + " of " + mycard3.getSuit()
+							+ "\n Better hope the dealer busts. \n" +
+								"He's dealing now. Hurry!", UIAlertControllerStyle.Alert);
 
 						// add buttons
 						alert.AddAction(UIAlertAction.Create("Okay :(", UIAlertActionStyle.Default, null));
 
 						// actually show the thing
 						PresentViewController(alert, true, null);
+						hitButton.Hidden = true;
+						doneButton.Hidden = true;
+						await Task.Delay (2000);
+						hitDealer ();
 					}
 				}
 				else if(mycard4 == null)
@@ -175,6 +227,10 @@ namespace BlackJack
 					myCard4Label.Text = "Dealing...";
 					await Task.Delay (2500);
 					mycard4 = dealDeck.dealCard ();
+					aceTest (mycard1, 0);
+					aceTest (mycard2, 1);
+					aceTest (mycard3, 2);
+					aceTest (mycard4, 3);
 					Console.Out.WriteLine ("mycard4: " + mycard4.getRank () + " of " + mycard4.getSuit ());
 					myCard4Label.Text = mycard4.getRank () + " of " + mycard4.getSuit ();
 
@@ -182,13 +238,19 @@ namespace BlackJack
 					if(checkBust())
 					{
 						var alert = UIAlertController.Create("Whoa Whoa Whoa.", "You busted! \n" +
-							"On a " + mycard4.getRank() + " of " + mycard4.getSuit(), UIAlertControllerStyle.Alert);
+							"On a " + mycard4.getRank() + " of " + mycard4.getSuit()
+							+ "\n Better hope the dealer busts.\n" +
+								"He's dealing now. Hurry!", UIAlertControllerStyle.Alert);
 
 						// add buttons
 						alert.AddAction(UIAlertAction.Create("Okay :(", UIAlertActionStyle.Default, null));
 
 						// actually show the thing
 						PresentViewController(alert, true, null);
+						hitButton.Hidden = true;
+						doneButton.Hidden = true;
+						await Task.Delay (2000);
+						hitDealer ();
 					}
 				}
 			}
@@ -261,27 +323,26 @@ namespace BlackJack
 		{
 			mysum = 0;
 			housesum = 0;
-			mysum += mycard1.getNumericalRank ();
-			mysum += mycard2.getNumericalRank ();
 
 			try
 			{
-				mysum += mycard3.getNumericalRank();
-				mysum += mycard4.getNumericalRank();
+				mysum += mycard1.getNumericalRank ();
+				mysum += mycard2.getNumericalRank ();
+				mysum += mycard3.getNumericalRank ();
+				mysum += mycard4.getNumericalRank ();
 			}
 			catch(Exception ex)
 			{
 				Console.Out.WriteLine ("updateCount error. One or more of your cards is null. Count: " + mysum);
 				Console.Out.WriteLine ("Error: " + ex.ToString ());
 			}
-
-			housesum += housecard1.getNumericalRank ();
-			housesum += housecard2.getNumericalRank ();
-
+				
 			try
 			{
-				housesum += housecard3.getNumericalRank();
-				housesum += housecard4.getNumericalRank();
+				housesum += housecard1.getNumericalRank ();
+				housesum += housecard2.getNumericalRank ();
+				housesum += housecard3.getNumericalRank ();
+				housesum += housecard4.getNumericalRank ();
 			}
 			catch(Exception ex)
 			{
@@ -327,7 +388,7 @@ namespace BlackJack
 			updateCount ();
 			await Task.Delay (2000);
 			updateCount ();
-			if (housesum > mysum && !checkHouseBust()) 
+			if (housesum > mysum && !checkHouseBust() && !checkBust()) 
 			{
 				Console.Out.WriteLine ("House wins!");
 				resultLabel.Text = "House wins!";
@@ -341,7 +402,7 @@ namespace BlackJack
 				// actually show the thing
 				PresentViewController(alert, true, null);
 			} 
-			else if (housesum < mysum && !checkBust ()) 
+			else if (housesum < mysum && !checkBust () && !checkHouseBust()) 
 			{
 				Console.Out.WriteLine ("You win!");
 				resultLabel.Text = "You win!";
@@ -354,7 +415,7 @@ namespace BlackJack
 				// actually show the thing
 				PresentViewController(alert, true, null);
 
-			} else if (housesum == mysum) 
+			} else if (housesum == mysum && !checkBust() && !checkHouseBust()) 
 			{
 				Console.Out.WriteLine ("Push!");
 				resultLabel.Text = "It was a push!";
@@ -367,20 +428,34 @@ namespace BlackJack
 				// actually show the thing
 				PresentViewController(alert, true, null);
 			}
-			else if(housesum > mysum && checkHouseBust())
+			else if(checkBust() && checkHouseBust())
 			{
-				Console.Out.WriteLine ("You win!");
-				resultLabel.Text = "You win!";
+				Console.Out.WriteLine ("Push!");
+				resultLabel.Text = "It was a push!";
 
-				var alert = UIAlertController.Create("You Win!", "Aww yeah bitch." + "\n" + printCards(), UIAlertControllerStyle.Alert);
+				var alert = UIAlertController.Create("It was a push!", "Bummer, dude." + "\n" + printCards(), UIAlertControllerStyle.Alert);
 
 				// add buttons
-				alert.AddAction(UIAlertAction.Create("Alright!", UIAlertActionStyle.Default, null));
+				alert.AddAction(UIAlertAction.Create("Okay", UIAlertActionStyle.Default, null));
 
 				// actually show the thing
 				PresentViewController(alert, true, null);
 			}
-			else if(housesum < mysum && checkBust())
+			else if(housesum < mysum && checkBust() && !checkHouseBust())
+			{
+				Console.Out.WriteLine ("House wins!");
+				resultLabel.Text = "House wins!";
+
+				var alert = UIAlertController.Create("House Wins!", "You can't beat the man." +
+					"\n " + printCards(), UIAlertControllerStyle.Alert);
+
+				// add buttons
+				alert.AddAction(UIAlertAction.Create("Okay :(", UIAlertActionStyle.Default, null));
+
+				// actually show the thing
+				PresentViewController(alert, true, null);
+			}
+			else if(housesum > mysum && !checkBust() && checkHouseBust())
 			{
 				Console.Out.WriteLine ("You win!");
 				resultLabel.Text = "You win!";
@@ -437,6 +512,8 @@ namespace BlackJack
 			myCard2Label.Text = mycard2.getRank () + " of " + mycard2.getSuit ();
 			cardsInHand = 2;
 			await Task.Delay (2500);
+			aceTest (mycard1, 0);
+			aceTest (mycard2, 1);
 
 			// deal the dealer in
 			housecard1 = dealDeck.dealCard ();
@@ -444,6 +521,8 @@ namespace BlackJack
 			await Task.Delay (2500);
 			housecard2 = dealDeck.dealCard ();
 			houseCard2Label.Text = housecard2.getRank () + " of " + housecard2.getSuit ();
+			aceTest (housecard1, 4);
+			aceTest (housecard2, 5);
 
 			Console.Out.WriteLine ("mycard1: " + mycard1.getRank () + " " + mycard1.getSuit ());
 			Console.Out.WriteLine ("mycard2: " + mycard2.getRank () + " " + mycard2.getSuit ());

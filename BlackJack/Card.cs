@@ -87,6 +87,20 @@ namespace BlackJack
 		{
 			return this.level;
 		}
+
+		// single setter function for ace test
+		public void setNumericalRank(int newNumericalRank)
+		{
+			// make sure only an ace can be set to 1 or 11.
+			if(this.rank == "ace" && (numericalRank == 1 || numericalRank == 11))
+			{
+				this.numericalRank = newNumericalRank;
+			}
+			else
+			{
+				Console.Out.WriteLine("setNumericalRank error: " + this.getRank() + " of " + this.getSuit() + " to " + newNumericalRank);
+			}
+		}
 	}
 }
 
