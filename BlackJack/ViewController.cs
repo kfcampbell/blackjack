@@ -9,7 +9,6 @@ namespace BlackJack
 {
 	public partial class ViewController : UIViewController
 	{
-		int cardsInHand = 0;
 		Card mycard1;
 		Card mycard2;
 		Card mycard3;
@@ -31,6 +30,9 @@ namespace BlackJack
 			base.ViewDidLoad ();
 			// Perform any additional setup after loading the view, typically from a nib.
 
+			// set up card views
+
+			// set up button views
 			hitButton.Hidden = true;
 			doneButton.Hidden = true;
 
@@ -38,28 +40,6 @@ namespace BlackJack
 			myCard4Label.Hidden = true;
 			houseCard3Label.Hidden = true;
 			houseCard4Label.Hidden = true;
-
-			Card jack = new Card ("spades", "jack", 10);
-			Console.Out.WriteLine("suit: " + jack.getSuit() + ". rank: " + jack.getRank());
-
-			Deck thisDeck = new Deck ();
-			Console.Out.WriteLine ("aceSpades: " + thisDeck.aceSpades.getRank () + " " + thisDeck.aceSpades.getSuit () + " "
-				+ thisDeck.aceSpades.getNumericalRank());
-			thisDeck.removeCard (jack);
-			try
-			{
-				Console.Out.WriteLine ("removed card: " + thisDeck.jackSpades.getRank () + thisDeck.jackSpades.getSuit ());
-			}
-			catch(Exception ex)
-			{
-				Console.Out.WriteLine (ex);
-			}
-
-			Console.Out.WriteLine ("cards left: " + thisDeck.cardsLeft ());
-			Console.Out.WriteLine ("is full: " + thisDeck.fullDeck ());
-
-			Card randCard = thisDeck.dealCard ();
-			Console.Out.WriteLine ("rand card: " + randCard.getRank () + " " + randCard.getSuit ());
 
 			// button handlers:
 			playButton.TouchUpInside += (object sender, EventArgs e) => 
@@ -80,6 +60,8 @@ namespace BlackJack
 				hitDealer();
 			};
 		}
+
+
 
 		// parameters: card, and an int: 0 = mycard1, 1 = mycard2, 2 = mycard3, 3 = mycard4.
 		// 4 = housecard1, 5 = housecard2, 6 = housecard3, 7 = housecard4
@@ -124,14 +106,14 @@ namespace BlackJack
 				if(housecard3 == null)
 				{
 					houseCard3Label.Hidden = false;
-					houseCard3Label.Text = "Dealing...";
+					houseImage3.Image = UIImage.FromBundle ("back.png");
 					await Task.Delay (2500);
 					housecard3 = dealDeck.dealCard ();
 					aceTest (housecard1, 4);
 					aceTest (housecard2, 5);
 					aceTest (housecard3, 6);
 					Console.Out.WriteLine ("housecard3: " + housecard3.getRank () + " of " + housecard3.getSuit ());
-					houseCard3Label.Text = housecard3.getRank () + " of " + housecard3.getSuit ();
+					houseImage3.Image = UIImage.FromBundle (housecard3.getCardString ());
 					await Task.Delay (1000);
 					if(checkHouseBust())
 					{
@@ -150,7 +132,7 @@ namespace BlackJack
 				if(housecard4 == null && housesum < 17)
 				{
 					houseCard4Label.Hidden = false;
-					houseCard4Label.Text = "Dealing...";
+					houseImage4.Image = UIImage.FromBundle ("back.png");
 					await Task.Delay (2500);
 					housecard4 = dealDeck.dealCard ();
 					aceTest (housecard1, 4);
@@ -159,6 +141,7 @@ namespace BlackJack
 					aceTest (housecard4, 7);
 					Console.Out.WriteLine ("housecard4: " + housecard4.getRank () + " of " + housecard4.getSuit ());
 					houseCard4Label.Text = housecard4.getRank () + " of " + housecard4.getSuit ();
+					houseImage4.Image = UIImage.FromBundle (housecard4.getCardString ());
 					await Task.Delay (1000);
 					if(checkHouseBust())
 					{
@@ -194,7 +177,7 @@ namespace BlackJack
 				if(mycard3 == null)
 				{
 					myCard3Label.Hidden = false;
-					myCard3Label.Text = "Dealing...";
+					myImage3.Image = UIImage.FromBundle ("back.png");
 					await Task.Delay (2500);
 					mycard3 = dealDeck.dealCard ();
 					aceTest (mycard1, 0);
@@ -202,6 +185,7 @@ namespace BlackJack
 					aceTest (mycard3, 2);
 					Console.Out.WriteLine ("mycard3: " + mycard3.getRank () + " of " + mycard3.getSuit ());
 					myCard3Label.Text = mycard3.getRank () + " of " + mycard3.getSuit ();
+					myImage3.Image = UIImage.FromBundle (mycard3.getCardString ());
 					
 					if(checkBust())
 					{
@@ -224,15 +208,15 @@ namespace BlackJack
 				else if(mycard4 == null)
 				{
 					myCard4Label.Hidden = false;
-					myCard4Label.Text = "Dealing...";
+					myImage4.Image = UIImage.FromBundle ("back.png");
 					await Task.Delay (2500);
 					mycard4 = dealDeck.dealCard ();
 					aceTest (mycard1, 0);
 					aceTest (mycard2, 1);
 					aceTest (mycard3, 2);
 					aceTest (mycard4, 3);
-					Console.Out.WriteLine ("mycard4: " + mycard4.getRank () + " of " + mycard4.getSuit ());
 					myCard4Label.Text = mycard4.getRank () + " of " + mycard4.getSuit ();
+					myImage4.Image = UIImage.FromBundle (mycard4.getCardString ());
 
 					// could refactor into its own function
 					if(checkBust())
@@ -473,20 +457,33 @@ namespace BlackJack
 
 		public void clearUI()
 		{
+			// add all the cards back to the deck
 			dealDeck = null;
 			dealDeck = new Deck ();
 
+			// make all the cards null. why aren't there 1's and 2's here?
 			mycard3 = null;
 			mycard4 = null;
 			housecard3 = null;
 			housecard4 = null;
 
+			// hide the labels
 			myCard3Label.Hidden = true;
 			myCard4Label.Hidden = true;
 			houseCard3Label.Hidden = true;
 			houseCard4Label.Hidden = true;
 			hitButton.Hidden = true;
 			doneButton.Hidden = true;
+
+			// hide the images
+			myImage1.Image = UIImage.FromBundle (" ");
+			myImage2.Image = UIImage.FromBundle (" ");
+			myImage3.Image = UIImage.FromBundle (" ");
+			myImage4.Image = UIImage.FromBundle (" ");
+			houseImage1.Image = UIImage.FromBundle (" ");
+			houseImage2.Image = UIImage.FromBundle (" ");
+			houseImage3.Image = UIImage.FromBundle (" ");
+			houseImage4.Image = UIImage.FromBundle (" ");
 
 			myCard1Label.Text = "Card One";
 			myCard2Label.Text = "Card Two";
@@ -504,13 +501,16 @@ namespace BlackJack
 			// alright, deal me in.
 			mycard1 = dealDeck.dealCard ();
 			myCard1Label.Text = mycard1.getRank () + " of " + mycard1.getSuit ();
-			myCard2Label.Text = "Dealing...";
-			houseCard1Label.Text = "Dealing...";
-			houseCard2Label.Text = "Dealing...";
+			myImage1.Image = UIImage.FromBundle (mycard1.getCardString ());
+
+			myImage2.Image = UIImage.FromBundle ("back.png");
+			houseImage1.Image = UIImage.FromBundle ("back.png");
+			houseImage2.Image = UIImage.FromBundle ("back.png");
+
 			await Task.Delay (2500);
 			mycard2 = dealDeck.dealCard ();
 			myCard2Label.Text = mycard2.getRank () + " of " + mycard2.getSuit ();
-			cardsInHand = 2;
+			myImage2.Image = UIImage.FromBundle (mycard2.getCardString ());
 			await Task.Delay (2500);
 			aceTest (mycard1, 0);
 			aceTest (mycard2, 1);
@@ -518,25 +518,19 @@ namespace BlackJack
 			// deal the dealer in
 			housecard1 = dealDeck.dealCard ();
 			houseCard1Label.Text = housecard1.getRank () + " of " + housecard1.getSuit ();
+			houseImage1.Image = UIImage.FromBundle (housecard1.getCardString ());
 			await Task.Delay (2500);
 			housecard2 = dealDeck.dealCard ();
 			houseCard2Label.Text = housecard2.getRank () + " of " + housecard2.getSuit ();
+			houseImage2.Image = UIImage.FromBundle (housecard2.getCardString ());
 			aceTest (housecard1, 4);
 			aceTest (housecard2, 5);
 
-			Console.Out.WriteLine ("mycard1: " + mycard1.getRank () + " " + mycard1.getSuit ());
-			Console.Out.WriteLine ("mycard2: " + mycard2.getRank () + " " + mycard2.getSuit ());
-
 			int mycardsum = mycard1.getNumericalRank () + mycard2.getNumericalRank ();
-			Console.Out.WriteLine ("my cards summed: " + mycardsum);
 
-			Console.Out.WriteLine ("housecard1: " + housecard1.getRank () + " " + housecard1.getSuit ());
-			Console.Out.WriteLine ("housecard2: " + housecard2.getRank () + " " + housecard2.getSuit ());
 			int housecardsum = housecard1.getNumericalRank () + housecard2.getNumericalRank ();
-			Console.Out.WriteLine ("house cards summed: " + housecardsum);
 
 			updateCount ();
-
 			hitButton.Hidden = false;
 			doneButton.Hidden = false;
 		}

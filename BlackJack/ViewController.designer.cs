@@ -44,6 +44,22 @@ namespace BlackJack
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView houseImage1 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView houseImage2 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView houseImage3 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView houseImage4 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel myCard1Label { get; set; }
 
 		[Outlet]
@@ -64,11 +80,31 @@ namespace BlackJack
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView myImage1 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView myImage2 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView myImage3 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIImageView myImage4 { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
 		UIButton playButton { get; set; }
 
 		[Outlet]
 		[GeneratedCode ("iOS Designer", "1.0")]
 		UILabel resultLabel { get; set; }
+
+		[Outlet]
+		[GeneratedCode ("iOS Designer", "1.0")]
+		UIView testImage1 { get; set; }
 
 		void ReleaseDesignerOutlets ()
 		{
@@ -100,6 +136,22 @@ namespace BlackJack
 				houseCardsLabel.Dispose ();
 				houseCardsLabel = null;
 			}
+			if (houseImage1 != null) {
+				houseImage1.Dispose ();
+				houseImage1 = null;
+			}
+			if (houseImage2 != null) {
+				houseImage2.Dispose ();
+				houseImage2 = null;
+			}
+			if (houseImage3 != null) {
+				houseImage3.Dispose ();
+				houseImage3 = null;
+			}
+			if (houseImage4 != null) {
+				houseImage4.Dispose ();
+				houseImage4 = null;
+			}
 			if (myCard1Label != null) {
 				myCard1Label.Dispose ();
 				myCard1Label = null;
@@ -120,6 +172,22 @@ namespace BlackJack
 				myCardsLabel.Dispose ();
 				myCardsLabel = null;
 			}
+			if (myImage1 != null) {
+				myImage1.Dispose ();
+				myImage1 = null;
+			}
+			if (myImage2 != null) {
+				myImage2.Dispose ();
+				myImage2 = null;
+			}
+			if (myImage3 != null) {
+				myImage3.Dispose ();
+				myImage3 = null;
+			}
+			if (myImage4 != null) {
+				myImage4.Dispose ();
+				myImage4 = null;
+			}
 			if (playButton != null) {
 				playButton.Dispose ();
 				playButton = null;
@@ -127,6 +195,10 @@ namespace BlackJack
 			if (resultLabel != null) {
 				resultLabel.Dispose ();
 				resultLabel = null;
+			}
+			if (testImage1 != null) {
+				testImage1.Dispose ();
+				testImage1 = null;
 			}
 		}
 	}
