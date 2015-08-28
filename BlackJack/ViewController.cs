@@ -71,7 +71,7 @@ namespace BlackJack
 			// first some error handling
 			if(which < 0 || which > 7)
 			{
-				Console.Out.WriteLine("AceTest: Not a real card, jackass.");
+				Console.Out.WriteLine("AceTest: Not a real card.");
 				return card;
 			}
 
@@ -164,7 +164,7 @@ namespace BlackJack
 		{
 			if(mycard3 != null && mycard4 != null)
 			{
-				var alert = UIAlertController.Create("Whoa Whoa Whoa.", "You can't hit now, jackass.", UIAlertControllerStyle.Alert);
+				var alert = UIAlertController.Create("Whoa Whoa Whoa.", "You can't hit now.", UIAlertControllerStyle.Alert);
 
 				// add buttons
 				alert.AddAction(UIAlertAction.Create("Okay", UIAlertActionStyle.Default, null));
